@@ -1,0 +1,14 @@
+[Unit]
+Description=Motion -> LED service (Raspberry Pi)
+After=multi-user.target
+
+[Service]
+Type=simple
+User=pi
+WorkingDirectory=/home/pi/raspi-motion-led
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/usr/bin/python3 /home/pi/raspi-motion-led/src/app.py
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
